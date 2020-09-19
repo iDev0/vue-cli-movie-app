@@ -2,17 +2,17 @@
     <div v-swiper:customSlider="swiperOption">
         <div class="swiper-wrapper">
             <div class="swiper-slide" :key="item.id" v-for="item in nowPlaying">
-                    <img :src="getImage(item.poster_path)" width="300" height="300" :alt="item.title" />
+                <Poster :src="item.poster_path" width="300" height="300" :alt="item.title" />
             </div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
-
 </template>
 
 <script>
-    import { movieAPI, apiImage } from "../api";
+    import { movieAPI } from "../api";
+    import Poster from "../components/Poster";
     import { directive } from 'vue-awesome-swiper'
     import 'swiper/css/swiper.css'
 
@@ -36,6 +36,7 @@
     }
     export default {
         name: "Movie",
+        components : { Poster },
         data () {
           return {
             swiperOption : {
@@ -76,11 +77,6 @@
             })
             .catch((error) => console.log(error))
         },
-        methods: {
-          getImage (path) {
-            return apiImage(path)
-          }
-        }
     }
 </script>
 
