@@ -3,8 +3,6 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide" :key="item.id" v-for="item in nowPlaying">
                     <img :src="getImage(item.poster_path)" width="300" height="300" :alt="item.title" />
-<!--                <Poster :path="item.poster_path" width="250" height="300" class="swiper-lazy"/>-->
-<!--                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>-->
             </div>
         </div>
         <div class="swiper-button-prev"></div>
