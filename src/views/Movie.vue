@@ -2,7 +2,7 @@
     <div id="wrapper">
         <div id="main-banner">
             <transition name="fade">
-              <h1 v-if="show">나는야 <br/> 스파이더맨</h1>
+              <h1 v-if="show">Amazing Spider!</h1>
             </transition>
             <transition name="fade">
               <div id="button-wrapper" v-if="show">
@@ -100,8 +100,8 @@
   font-size: 18px;
   position: absolute;
   z-index: 1;
-  margin-top: 370px;
-  margin-left: 24px;
+  margin-top: 320px;
+  margin-left: 20px;
 }
 
 #button-wrapper > button {
