@@ -2,7 +2,7 @@
     <div v-swiper:customSlider="swiperOption">
         <div class="swiper-wrapper">
             <div class="swiper-slide" :key="item.id" v-for="item in items">
-                <Poster :src="item.poster_path" width="300" height="300" :alt="item.title" />
+                <Poster :src="item.poster_path" width="200" height="250" :alt="item.title" />
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -18,19 +18,23 @@
   const breakPoints = {
     1024: {
       slidesPerView: 4,
-      spaceBetween: 40
+      spaceBetween: 0,
+      slidesPerGroup: 4
     },
     768: {
       slidesPerView: 3,
-      spaceBetween: 30
+      spaceBetween: 0,
+      slidesPerGroup: 3
     },
     640: {
       slidesPerView: 2,
-      spaceBetween: 20
+      spaceBetween: 0,
+      slidesPerGroup: 2
     },
     320: {
       slidesPerView: 1,
-      spaceBetween: 10
+      spaceBetween: 0,
+      slidesPerGroup: 1
     }
   }
 
@@ -46,10 +50,7 @@
     data () {
       return {
         swiperOption : {
-          slidesPerView: 4,
-          spaceBetween: 50,
-          slidesPerGroup: 4,
-          breakPoints: breakPoints,
+          breakpoints: breakPoints,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
