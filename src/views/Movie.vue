@@ -1,36 +1,22 @@
 <template>
     <div id="wrapper">
-        <div id="main-banner">
-            <transition name="fade">
-              <h1 v-if="show">Amazing Spider!</h1>
-            </transition>
-            <transition name="fade">
-              <div id="button-wrapper" v-if="show">
-                <button v-if="show"> ▶️ 재생하기</button>
-                <button v-if="show"> ℹ️ 상세정보</button>
-              </div>
-            </transition>
 
-            <img src="https://images.unsplash.com/photo-1534375971785-5c1826f739d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" />
-        </div>
-
-        <h1>NowPlaying</h1>
-        <Slider :items="nowPlaying" />
-        <h1>Popular</h1>
-        <Slider :items="popular" />
-        <h1>Upcoming</h1>
-        <Slider :items="upcoming" />
-        <h1>Discover</h1>
-        <Slider :items="discover" />
+        <Banner :show="show" />
+        <Section title="NowPlaying" :items="nowPlaying"/>
+        <Section title="Popular" :items="popular"/>
+        <Section title="Upcoming" :items="upcoming"/>
+        <Section title="Discover" :items="discover"/>
     </div>
 </template>
 
 <script>
     import { movieAPI } from "../api";
-    import Slider from "../components/Slider";
+    import Section from "@/components/Section";
+    import Banner from "@/components/Banner";
+
     export default {
         name: "Movie",
-        components : { Slider },
+        components : { Section, Banner },
         data () {
           return {
             nowPlaying : [],
@@ -44,6 +30,7 @@
           movieAPI.nowPlaying()
             .then(([result, error]) => {
               if (error) throw error
+              console.log(result)
               this.nowPlaying = result
             }).catch((error) => console.log(error))
           movieAPI.popular()
@@ -72,60 +59,5 @@
 #wrapper {
   width: 100%;
   height: auto;
-}
-
-#main-banner {
-  width: 100%;
-  height: auto;
-}
-
-#main-banner > img {
-  width: 100%;
-  opacity: 0.3;
-}
-
-#main-banner > h1 {
-  position: absolute;
-  margin-top: 250px;
-  font-weight: 900;
-  margin-left: 50px;
-  z-index: 1;
-}
-
-#button-wrapper {
-  width: 330px;
-  height: 100px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 18px;
-  position: absolute;
-  z-index: 1;
-  margin-top: 320px;
-  margin-left: 20px;
-}
-
-#button-wrapper > button {
-  width: 110px;
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 18px;
-}
-
-
-h1 {
-  text-align: left;
-  color: white;
-  padding: 20px;
-  font-weight: 800;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: all 1s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(50px);
 }
 </style>
