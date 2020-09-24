@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
 
-        <Banner :show="show" />
+        <Banner title="After We Collided" :show="show" youtube-key="BJBxXDhpZq0" />
         <Section title="NowPlaying" :items="nowPlaying"/>
         <Section title="Popular" :items="popular"/>
         <Section title="Upcoming" :items="upcoming"/>

@@ -1,7 +1,7 @@
 <template>
   <div id="main-banner">
     <transition name="fade">
-      <h1 v-if="show">Amazing Spider!</h1>
+      <h1 v-if="show">{{ title }}</h1>
     </transition>
     <transition name="fade">
       <div id="button-wrapper" v-if="show">
@@ -10,11 +10,7 @@
       </div>
     </transition>
     <transition name="fade">
-      <object
-          type="text/html"
-          height="500"
-          data="//www.youtube.com/embed/2SvwX3ux_-8"
-      />
+      <object type="text/html" height="500" :data="video"/>
     </transition>
   </div>
 </template>
@@ -23,9 +19,22 @@
 export default {
   name: "Banner",
   props : {
+    title : {
+      type : String,
+      required : true
+    },
     show : {
       type : Boolean,
       required : true,
+    },
+    youtubeKey : {
+      type : String,
+      required : true
+    },
+  },
+  computed : {
+    video () {
+      return `//www.youtube.com/embed/${this.youtubeKey}`
     }
   }
 }
