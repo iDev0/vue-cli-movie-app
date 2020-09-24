@@ -49,7 +49,7 @@ export default {
 
 #main-banner > object {
   width: 100%;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
 #main-banner > h1 {
