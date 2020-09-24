@@ -10,7 +10,11 @@
       </div>
     </transition>
     <transition name="fade">
-      <object type="text/html" height="500" :data="video"/>
+      <object
+          type="text/html"
+          height="500"
+          :data="video"
+      />
     </transition>
   </div>
 </template>
@@ -34,7 +38,7 @@ export default {
   },
   computed : {
     video () {
-      return `//www.youtube.com/embed/${this.youtubeKey}`
+      return `//www.youtube.com/embed/${this.youtubeKey}?autoplay=1`
     }
   }
 }

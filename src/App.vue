@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/movie">Movie</router-link>
+      <router-link to="/">홈</router-link>
+      <router-link to="/movie">영화</router-link>
+      <router-link to="/tv">TV프로그램</router-link>
     </div>
     <router-view/>
   </div>
@@ -24,11 +24,14 @@ body {
 
 #nav {
   padding: 30px;
+  text-align: left;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
+  margin-right: 20px;
+  font-size: 18px;
 }
 
 #nav a.router-link-exact-active {
