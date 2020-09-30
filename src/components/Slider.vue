@@ -2,7 +2,7 @@
     <div v-swiper:customSlider="swiperOption">
         <div class="swiper-wrapper">
             <div class="swiper-slide" :key="item.id" v-for="item in items">
-                <Poster :src="item.poster_path" width="200" height="250" :alt="item.title" />
+                <Poster :src="item.poster_path || item.backdrop_path" width="200" height="250" :alt="item.title || 'untitle'" />
             </div>
         </div>
         <div class="swiper-button-prev"></div>
