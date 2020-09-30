@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Movie from "../views/Movie";
-
+import TV from "@/views/TV";
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,9 +21,9 @@ const routes = [
   },
   {
     path: '/tv',
-    name : 'Movie',
-    component: Movie
-  }
+    name : 'TV',
+    component: TV
+  },
 ]
 
 const router = new VueRouter({
