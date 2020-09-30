@@ -4,7 +4,10 @@
       <router-link to="/">홈</router-link>
       <router-link to="/movie">영화</router-link>
       <router-link to="/tv">TV프로그램</router-link>
-      <font-awesome-icon icon="search" :style="{ color: 'white' }" size="lg" />
+      <font-awesome-layers :style="{float : 'right'}">
+        <font-awesome-icon icon="search" :style="{ color: 'white' }" size="lg" />
+      </font-awesome-layers>
+
     </div>
     <router-view/>
   </div>
