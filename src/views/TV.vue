@@ -1,5 +1,6 @@
 <template>
   <div id="wrapper">
+      <Banner title="LUCIFER" :show="show" youtube-key="X4bF_quwNtw" />
       <Section title="Today" :items="today"/>
       <Section title="ThisWeek" :items="thisWeek"/>
       <Section title="TopRated" :items="topRated"/>
@@ -9,12 +10,14 @@
 
 <script>
 import Section from "@/components/Section";
+import Banner from "@/components/Banner";
 import { tvAPI } from "@/api";
 export default {
   name: "TV.vue",
-  components : { Section },
+  components : { Section, Banner },
   data() {
     return {
+      show : false,
       today : [],
       thisWeek : [],
       topRated : [],
@@ -46,11 +49,12 @@ export default {
     tvAPI.popular()
       .then(([results, error]) => {
         if (error) throw error
+        console.log(results)
         this.popular = results
       }).catch(error => {
         console.log(error)
       })
-
+    this.show = true
   }
 
 }
