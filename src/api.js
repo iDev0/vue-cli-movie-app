@@ -1,6 +1,7 @@
 const axios = require('axios')
+const { API_KEY } = require('./keys')
 // git 제외됨
-const TMDB_KEY = '24ca04c6a3c3f77dcd86b12fdef8c829';
+const TMDB_KEY = API_KEY;
 const makeRequest = (path, params) =>
   axios.get(`https://api.themoviedb.org/3${path}`, {
     params : {
