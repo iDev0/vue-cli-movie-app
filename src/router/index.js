@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Movie from "../views/Movie";
 import TV from "@/views/TV";
+import Search from "@/views/Search";
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
     name : 'TV',
     component: TV
   },
+  {
+    path : '/search',
+    name : 'search',
+    component: Search
+  }
 ]
 
 const router = new VueRouter({

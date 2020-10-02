@@ -4,14 +4,47 @@
       <router-link to="/">홈</router-link>
       <router-link to="/movie">영화</router-link>
       <router-link to="/tv">TV프로그램</router-link>
-      <font-awesome-layers :style="{float : 'right'}">
-        <font-awesome-icon icon="search" :style="{ color: 'white' }" size="lg" />
-      </font-awesome-layers>
-
-    </div>
+      <SearchBar :keyword="keyword" @search="value => search(value)" />
     <router-view/>
+    </div>
   </div>
 </template>
+
+<script>
+// import { movieAPI, tvAPI } from "@/api";
+import SearchBar from "@/components/SearchBar";
+
+export default {
+  components: {SearchBar},
+  data () {
+    return {
+      keyword: ''
+    }
+  },
+  methods : {
+    search(keyword) {
+      if (keyword !== this.$router.currentRoute.query.keyword) {
+        this.$router.replace({path : 'search', query : { keyword : keyword }});
+      }
+
+      // movieAPI.search(this.keyword)
+      //   .then(([results, err]) => {
+      //     if (err) throw err
+      //     console.log(results)
+      //     // this.$router.push({path : 'search', params : results })
+      //   })
+      //   .catch(err => console.log(err))
+      //
+      // tvAPI.search(this.keyword)
+      //   .then(([results, err]) => {
+      //     if (err) throw err
+      //     console.log(results)
+      //   })
+      //   .catch(err => console.log(err))
+    }
+  }
+}
+</script>
 
 <style>
 body {
