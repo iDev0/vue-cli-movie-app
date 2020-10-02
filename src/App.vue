@@ -51,6 +51,10 @@ body {
   background: black;
 }
 
+*:focus {
+  outline: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

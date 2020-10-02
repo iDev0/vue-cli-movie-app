@@ -56,9 +56,4 @@ export default {
   border-right: transparent;
   color: white;
 }
-
-#search-bar:focus {
-  outline-width: 0;
-}
-
 </style>
