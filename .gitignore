@@ -22,5 +22,3 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# api 제거
-./src/api.js
