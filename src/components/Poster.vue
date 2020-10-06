@@ -1,5 +1,11 @@
 <template>
-    <img :src="path" :width="width" :height="height" :alt="alt" />
+    <img
+        ref="img"
+        :src="path"
+        :width="width"
+        :height="height"
+        :alt="alt"
+    />
 </template>
 
 <script>
@@ -22,10 +28,23 @@
       path () {
         return apiImage(this.src)
       }
-    }
+    },
   }
 </script>
 
 <style scoped>
+img {
+
+
+}
+
+img:hover {
+  transition-duration: 1s;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  z-index: 9999;
+}
 
 </style>

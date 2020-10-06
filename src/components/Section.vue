@@ -18,7 +18,7 @@ export default {
     items : {
       type : Array,
       required: true
-    }
+    },
   }
 }
 </script>
